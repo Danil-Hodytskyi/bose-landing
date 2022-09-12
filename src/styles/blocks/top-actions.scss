@@ -1,0 +1,47 @@
+.top-actions {
+  --icon-width: 18px;
+
+  display: grid;
+  grid-template-columns: 1fr var(--icon-width) var(--icon-width);
+  align-items: center;
+
+  animation: swing-in-top-fwd 0.8s
+    cubic-bezier(0.17, 0.89, 0.32, 1.27) 0.8s both;
+
+  @keyframes swing-in-top-fwd {
+    0% {
+      transform: rotateX(-100deg);
+      transform-origin: top;
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      transform-origin: top;
+      opacity: 1;
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: var(--icon-width) var(--icon-width);
+    justify-content: center;
+    gap: 30px;
+
+    @include onTablet {
+      --icon-width: 24px;
+      gap: 32px;
+    }
+
+    @include onDesktop {
+      & {
+        --icon-width: 24px;
+
+        gap: 40px;
+      }
+    }
+  }
+
+  &__cross {
+    grid-column-start: 2;
+  }
+}
